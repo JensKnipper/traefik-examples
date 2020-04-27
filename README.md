@@ -1,6 +1,6 @@
 # Traefik Examples
 
-This repository covers basic examples for using [Traefik](traefik.io) and Docker. The examples are primarily used in my blog [blog.jensknipper.de](blog.jensknipper.de) to show and explain the code in the articles.  
+This repository covers basic examples for using [Traefik](https://traefik.io) and Docker. The examples are primarily used in my blog [blog.jensknipper.de](https://blog.jensknipper.de) to show and explain the code in the articles.  
 
 ## Overview
 
