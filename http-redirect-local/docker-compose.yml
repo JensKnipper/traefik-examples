@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  reverse-proxy:
+    image: traefik:v2.2
+    command:
+      - "--providers.docker"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  whoami:
+    image: containous/whoami
+    labels:
+      - "traefik.http.routers.whoami-http.entrypoints=web"
+      - "traefik.http.routers.whoami-http.rule=Host(`whoami.localhost`)"
+      - "traefik.http.routers.whoami-http.middlewares=whoami-https"
+      - "traefik.http.middlewares.whoami-https.redirectscheme.scheme=https"
+      - "traefik.http.routers.whoami.entrypoints=websecure"
+      - "traefik.http.routers.whoami.rule=Host(`whoami.localhost`)"
+      - "traefik.http.routers.whoami.tls=true"
+
+  whoami2:
+    image: containous/whoami
+    labels:
+      - "traefik.http.routers.whoami2.rule=Host(`whoami2.localhost`)"
+
