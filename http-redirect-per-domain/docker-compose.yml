@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  reverse-proxy:
+  traefik:
     image: traefik:v2.2
     command:
       - "--providers.docker"
@@ -27,5 +27,7 @@ services:
   whoami2:
     image: containous/whoami
     labels:
+      - "traefik.http.routers.whoami2.entrypoints=web"
       - "traefik.http.routers.whoami2.rule=Host(`whoami2.localhost`)"
+
 

@@ -4,13 +4,13 @@ This repository covers basic examples for using [Traefik](https://traefik.io) an
 
 ## Overview
 
-### Local HTTP-redirect
-- [Example code](http-redirect-local/docker-compose.yml)
-- Article (coming soon)
-
 ### Global HTTP-redirect
+- [Article](https://blog.jensknipper.de/blog/traefik-http-to-https-redirect/#global-http-to-https-redirect)
 - [Example code](http-redirect-global/docker-compose.yml)
-- Article (coming soon)
+
+### Per Domain HTTP-redirect
+- [Article](https://blog.jensknipper.de/blog/traefik-http-to-https-redirect/#per-domain-http-to-https-redirect)
+- [Example code](http-redirect-per-domain/docker-compose.yml)
 
 ## Upcoming Topics
 - Traefik https and www redirect

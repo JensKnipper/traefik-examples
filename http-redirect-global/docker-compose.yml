@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  reverse-proxy:
+  traefik:
     image: traefik:v2.2
     command:
       - "--providers.docker"
