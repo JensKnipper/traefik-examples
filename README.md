@@ -12,5 +12,13 @@ This repository covers basic examples for using [Traefik](https://traefik.io) an
 - [Article](https://blog.jensknipper.de/blog/traefik-http-to-https-redirect/#per-domain-http-to-https-redirect)
 - [Example code](http-redirect-per-domain/docker-compose.yml)
 
+### Redirect to external url
+- Article (coming soon)
+- [Example code](redirect-to-external-url/docker-compose.yml)
+
+### Redirect to a subdomain
+- Article (coming soon)
+- [Example code](subdomain-redirect/docker-compose.yml)
+
 ## Upcoming Topics
-- Traefik https and www redirect
+- https and www redirect

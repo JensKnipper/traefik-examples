@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  traefik:
+    image: traefik:v2.2
+    command:
+      - "--providers.docker"
+      - "--entrypoints.web.address=:80"
+    ports:
+      - "80:80"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    labels:
+      - "traefik.http.routers.redirect-router.entrypoints=web"
+      - "traefik.http.routers.redirect-router.rule=Host(`redirect.localhost`)"
+      - "traefik.http.routers.redirect-router.middlewares=redirect-regex"
+      - "traefik.http.middlewares.redirect-regex.redirectregex.regex=(.)*"
+      - "traefik.http.middlewares.redirect-regex.redirectregex.replacement=https://blog.jensknipper.de"
+      - "traefik.http.middlewares.redirect-regex.redirectregex.permanent=false"
+
