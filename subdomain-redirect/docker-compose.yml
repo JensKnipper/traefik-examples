@@ -21,7 +21,7 @@ services:
   website:
     image: nginx:latest
     volumes:
-      - ./web:/usr/share/nginx/html
+      - ./website:/usr/share/nginx/html
     labels:
       - "traefik.http.routers.website.entrypoints=web"
       - "traefik.http.routers.website.rule=Host(`localhost`)"
