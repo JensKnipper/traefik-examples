@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  reverse-proxy:
+    image: traefik:v2.2
+    command:
+      - "--providers.docker"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.web.http.redirections.entrypoint.to=websecure"
+      - "--entrypoints.web.http.redirections.entrypoint.scheme=https"
+      - "--entrypoints.websecure.address=:443"
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    labels: 
+      - "traefik.http.routers.wwwsecure-catchall.entrypoints=websecure"
+      - "traefik.http.routers.wwwsecure-catchall.rule=HostRegexp(`{host:(www\\.).+}`)"
+      - "traefik.http.routers.wwwsecure-catchall.tls=true"
+      - "traefik.http.routers.wwwsecure-catchall.middlewares=wwwtohttps"
+      - "traefik.http.middlewares.wwwtohttps.redirectregex.regex=^https?://(?:www\\.)?(.+)"
+      - "traefik.http.middlewares.wwwtohttps.redirectregex.replacement=https://$${1}"
+      - "traefik.http.middlewares.wwwtohttps.redirectregex.permanent=false"
+
+  whoami:
+    image: containous/whoami
+    labels:
+      - "traefik.http.routers.whoami.entrypoints=websecure"
+      - "traefik.http.routers.whoami.rule=Host(`whoami.localhost`)"
+      - "traefik.http.routers.whoami.tls=true"
+      - "traefik.http.routers.whoami.tls.domains[0].main=whoami.localhost"
+      - "traefik.http.routers.whoami.tls.domains[0].sans=www.whoami.localhost"
