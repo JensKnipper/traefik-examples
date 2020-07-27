@@ -8,6 +8,9 @@ Feel free to open tickets or merge requests if you think something is missing.
 
 ### General
 
+#### Expose Traefik Dashboard to Subdomain
+- [Example code](general/expose-traefik-dashboard-to-subdomain/docker-compose.yml)
+
 ### Redirects
 
 #### HTTP to HTTPS redirect
@@ -34,6 +37,5 @@ Feel free to open tickets or merge requests if you think something is missing.
 ## Upcoming Topics
 - https and www redirect - www to non-www version
 - https and www redirect - per service
-- expose traefik dashboard to subdomain
 - enable logging
 - traefik without domain name
