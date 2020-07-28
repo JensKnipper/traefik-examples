@@ -48,4 +48,3 @@ Feel free to open tickets or merge requests if you think something is missing.
 ## Upcoming Topics
 - https and www redirect - www to non-www version
 - https and www redirect - per service
-- enable logging
