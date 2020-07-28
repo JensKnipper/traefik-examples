@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  traefik:
+    image: "traefik:v2.2"
+    command:
+      - "--providers.docker"
+      - "--log.level=DEBUG" # DEBUG, PANIC, FATAL, ERROR, WARN, INFO
+      - "--log.filePath=/logs/traefik.log" 
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./logs/:/logs/

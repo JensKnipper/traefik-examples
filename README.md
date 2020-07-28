@@ -6,13 +6,21 @@ Feel free to open tickets or merge requests if you think something is missing.
 
 ## Overview
 
-### General
+### Dashboard
 
 #### Expose Traefik Dashboard to Subdomain
-- [Example code](general/expose-traefik-dashboard-to-subdomain/docker-compose.yml)
+- [Example code](dashboard/expose-traefik-dashboard-to-subdomain/docker-compose.yml)
 
 #### Secure Traefik Dashboard
-- [Example code](general/secure-traefik-dashboard/docker-compose.yml)
+- [Example code](dashboard/secure-traefik-dashboard/docker-compose.yml)
+
+### Logging
+
+#### Enable Logging
+- [Example code](logging/enable-logging/docker-compose.yml)
+
+#### Enable Access Logging
+- [Example code](logging/enable-access-logging/docker-compose.yml)
 
 ### Redirects
 

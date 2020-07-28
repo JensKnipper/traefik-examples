@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  traefik:
+    image: "traefik:v2.2"
+    command:
+      - "--providers.docker"
+      - "--entrypoints.web.address=:80"
+      - "--accesslog=true"
+      - "--accesslog.filePath=/logs/access.log"
+    ports:
+      - "80:80"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./logs/:/logs/
+
+  whoami:
+    image: containous/whoami
+    labels:
+      - "traefik.http.routers.whoami.entrypoints=web"
+      - "traefik.http.routers.whoami.rule=Host(`whoami.localhost`)"
