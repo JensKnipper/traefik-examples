@@ -49,7 +49,7 @@ Feel free to open tickets or merge requests if you think something is missing.
 
 #### Auto-SSL with Let's Encrypt
 
-##### Auto-SSL with HTTP-Challenge
+##### Auto-SSL with HTTP-Challenge (NOT WORKING LOCALLY!)
 - [Example code](ssl/auto-ssl/http-challenge/docker-compose.yml)
 
 
