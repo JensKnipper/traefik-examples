@@ -45,6 +45,16 @@ Feel free to open tickets or merge requests if you think something is missing.
 #### Redirect to subdomain
 - [Example code](redirects/subdomain-redirect/docker-compose.yml)
 
+### SSL
+
+#### Auto-SSL with Let's Encrypt
+
+##### Auto-SSL with HTTP-Challenge
+- [Example code](ssl/auto-ssl/http-challenge/docker-compose.yml)
+
+
 ## Upcoming Topics
 - https and www redirect - www to non-www version
 - https and www redirect - per service
+- auto-ssl dns challenge
+- ssl including own (wildcard) certificate

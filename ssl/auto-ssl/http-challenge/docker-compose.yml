@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  traefik:
+    image: traefik:v2.2
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./letsencrypt/:/letsencrypt/
+    command:
+      - "--providers.docker"
+      - "--entrypoints.web.address=:80"      
+      - "--entrypoints.webwecure.address=:443"
+      - "--certificatesresolvers.default.acme.httpchallenge=true"
+      - "--certificatesresolvers.default.acme.httpchallenge.entrypoint=web"
+      - "--certificatesresolvers.default.acme.email=mail@example.com"
+      - "--certificatesresolvers.default.acme.storage=/letsencrypt/acme.json"
+
+
+  whoami:
+    image: containous/whoami
+    labels:
+      traefik.http.routers.whoami.entrypoints: websecure
+      traefik.http.routers.whoami.rule: Host(`whoami.example.com`)"
+      traefik.http.routers.whoami.tls: true
+      traefik.http.routers.homepage.tls.certresolver: default
