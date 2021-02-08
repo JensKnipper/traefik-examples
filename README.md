@@ -22,6 +22,14 @@ Feel free to open tickets or merge requests if you think something is missing.
 #### Enable Access Logging
 - [Example code](logging/enable-access-logging/docker-compose.yml)
 
+### Ports
+
+#### Additional entrypoint
+- [Example code](ports/additional-entrypoint/docker-compose.yml)
+
+#### Serve non HTTP/HTTPS ports
+- [Example code](ports/serve-non-http-ports/docker-compose.yml)
+
 ### Redirects
 
 #### HTTP to HTTPS redirect
