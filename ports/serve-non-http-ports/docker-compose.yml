@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  traefik:
+    image: traefik:v2.2
+    command:
+      - "--providers.docker"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+      - "--entrypoints.ftp.address=:21"
+      - "--entrypoints.ftp-passive-0.address=:10000"
+    ports:
+      - "80:80"
+      - "443:443"
+      - "21:21"
+      - "10000:10000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  ftp:
+    image: stilliard/pure-ftpd
+    environment: 
+      FTP_USER_NAME: user
+      FTP_USER_PASS: pass
+      FTP_USER_HOME: /home/user
+      FTP_PASSIVE_PORTS: 10000:10000
+    labels:
+      - traefik.tcp.routers.ftp.rule=HostSNI(`*`)
+      - traefik.tcp.routers.ftp.entrypoints=ftp
+      - traefik.tcp.routers.ftp.service=ftp
+      - traefik.tcp.services.ftp.loadbalancer.server.port=21
+
+      - traefik.tcp.routers.ftp-passive-0.rule=HostSNI(`*`)
+      - traefik.tcp.routers.ftp-passive-0.entrypoints=ftp-passive-0
+      - traefik.tcp.routers.ftp-passive-0.service=ftp-passive-0
+      - traefik.tcp.services.ftp-passive-0.loadbalancer.server.port=10000
