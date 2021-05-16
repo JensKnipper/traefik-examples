@@ -7,7 +7,6 @@ services:
       - "--providers.docker"
       - "--entrypoints.web.address=:80"
       - "--api.dashboard=true"
-      - "--api.insecure=true"
     ports:
        - "80:80"
     volumes:

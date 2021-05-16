@@ -9,12 +9,13 @@ Feel free to open tickets or merge requests if you think something is missing.
 ### Authentication
 
 #### Basic Authentication - e.g. secure Traefik dashboard
-- [Article](https://blog.jensknipper.de/blog/basic-authentication-with-traefik)
+- [Article](https://jensknipper.de/blog/basic-authentication-with-traefik)
 - [Example code](authentication/basic-authentication/docker-compose.yml)
 
 ### Dashboard
 
 #### Expose Traefik Dashboard to Subdomain
+- [Article](https://jensknipper.de/blog/exposing-traefik-dashboard/)
 - [Example code](dashboard/expose-traefik-dashboard-to-subdomain/docker-compose.yml)
 
 ### Logging
@@ -38,11 +39,11 @@ Feel free to open tickets or merge requests if you think something is missing.
 #### HTTP to HTTPS redirect
 
 ##### Global HTTP to HTTPS redirect
-- [Article](https://blog.jensknipper.de/blog/traefik-http-to-https-redirect#global-http-to-https-redirect)
+- [Article](https://jensknipper.de/blog/traefik-http-to-https-redirect#global-http-to-https-redirect)
 - [Example code](redirects/http-to-https-redirect/http-redirect-global/docker-compose.yml)
 
 ##### Per Domain HTTP to HTTPS redirect
-- [Article](https://blog.jensknipper.de/blog/traefik-http-to-https-redirect#per-domain-http-to-https-redirect)
+- [Article](https://jensknipper.de/blog/traefik-http-to-https-redirect#per-domain-http-to-https-redirect)
 - [Example code](redirects/http-to-https-redirect/http-redirect-per-domain/docker-compose.yml)
 
 #### HTTP to HTTPS and with www redirect
@@ -69,3 +70,6 @@ Feel free to open tickets or merge requests if you think something is missing.
 - https and www redirect - per service
 - auto-ssl dns challenge
 - ssl including own (wildcard) certificate
+- digest auth
+- rate limiting
+- load balancing
