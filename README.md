@@ -1,7 +1,7 @@
 # Traefik Examples
 
 This repository covers basic examples for using [Traefik](https://traefik.io) and Docker. All examples can be executed locally, which allows easy testing and adjusting to your own needs.  
-The examples are primarily used in my blog [blog.jensknipper.de](https://blog.jensknipper.de) to show and explain the code in the articles.  
+The examples are primarily used in my blog [jensknipper.de](https://jensknipper.de) to show and explain the code in the articles.  
 Feel free to open tickets or merge requests if you think something is missing.  
 
 ## Overview
@@ -52,6 +52,7 @@ Feel free to open tickets or merge requests if you think something is missing.
 - [Example code](redirects/http-to-https-with-www-redirect/global-www-to-non-www-https-redirect/docker-compose.yml)
 
 #### Redirect to external url
+- [Article](https://jensknipper.de/blog/traefik-redirect-to-external-domain/)
 - [Example code](redirects/redirect-to-external-url/docker-compose.yml)
 
 #### Redirect to subdomain
