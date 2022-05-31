@@ -1,7 +1,10 @@
 # Traefik Examples
 
 This repository covers basic examples for using [Traefik](https://traefik.io) and Docker. All examples can be executed locally, which allows easy testing and adjusting to your own needs.  
-The examples are primarily used in my blog [jensknipper.de](https://jensknipper.de) to show and explain the code in the articles.  
+A lot of these examples are explained in detail in my blog: [jensknipper.de](https://jensknipper.de). In case you are running in some problems or need some background information you should take a look at these articles.
+
+For the purpose of simpler declaration I will not make use of configuration files, but only use docker labels.
+
 Feel free to open tickets or merge requests if you think something is missing.  
 
 ## Overview
@@ -57,6 +60,9 @@ Feel free to open tickets or merge requests if you think something is missing.
 
 #### Redirect to subdomain
 - [Example code](redirects/subdomain-redirect/docker-compose.yml)
+
+### Reverse Proxy
+- [Example code](reverse-proxy/docker-compose.yml)
 
 ### SSL
 
