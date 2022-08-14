@@ -25,9 +25,11 @@ Feel free to open tickets or merge requests if you think something is missing.
 
 #### Enable Logging
 - [Example code](logging/enable-logging/docker-compose.yml)
+- [Article](https://jensknipper.de/blog/traefik-logging#logging)
 
 #### Enable Access Logging
 - [Example code](logging/enable-access-logging/docker-compose.yml)
+- [Article](https://jensknipper.de/blog/traefik-logging#activate-access-logging)
 
 ### Ports
 
@@ -80,3 +82,4 @@ Feel free to open tickets or merge requests if you think something is missing.
 - digest auth
 - rate limiting
 - load balancing
+- port instead of domain
