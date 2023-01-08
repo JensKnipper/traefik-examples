@@ -24,7 +24,7 @@ services:
       - "--entrypoints.websecure.http.tls.certResolver=letsencrypt"
       # Creates a wildcard certificate, messages like 404 pages are returned encrypted by Treafik.
       - "--entrypoints.websecure.http.tls.domains[0].main=example.com"
-      - "--entrypoints.websecure.http.tls.domains[0].sans=*.example.com" #
+      - "--entrypoints.websecure.http.tls.domains[0].sans=*.example.com"
     ports:
       - "80:80"
       - "443:443"
