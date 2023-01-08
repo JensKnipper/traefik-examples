@@ -70,6 +70,12 @@ Feel free to open tickets or merge requests if you think something is missing.
 
 #### Auto-SSL with Let's Encrypt
 
+##### Auto-SSL with DNS-Challenge
+- [Example code](ssl/auto-ssl/dns-challenge/docker-compose.yml)
+
+##### Auto-SSL with DNS-Challenge and wildcard certificate
+- [Example code](ssl/auto-ssl/dns-challenge-wildcard/docker-compose.yml)
+
 ##### Auto-SSL with HTTP-Challenge (NOT WORKING LOCALLY!)
 - [Example code](ssl/auto-ssl/http-challenge/docker-compose.yml)
 
