@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  traefik:
+    image: traefik:v2.2
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./letsencrypt/:/letsencrypt/
+    command:
+      - "--providers.docker"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.webwecure.address=:443"
+      - "--certificatesresolvers.default.acme.dnschallenge=true"
+      # See here for your dnschallenge provider: https://go-acme.github.io/lego/dns/
+      - "--certificatesresolvers.default.acme.dnschallenge.provider=joker"
+      - "--certificatesresolvers.default.acme.email=mail@example.com"
+      - "--certificatesresolvers.default.acme.storage=/letsencrypt/acme.json"
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      # See here for your dns provider variables: https://go-acme.github.io/lego/dns/
+      - JOKER_API_MODE=SVC
+      - JOKER_USERNAME=${SECRET_DNS_JOKER_USERNAME} # e.g. use an .env file for this secret
+      - JOKER_PASSWORD=${SECRET_DNS_JOKER_PASSWORD} # e.g. use an .env file for this secret
+
+  whoami:
+    image: containous/whoami
+    labels:
+      traefik.enable: true
+      traefik.http.routers.whoami.entrypoints: websecure
+      traefik.http.routers.whoami.rule: Host(`whoami.example.com`)"
