@@ -1,12 +1,9 @@
-version: '3'
-
 services:
   traefik:
-    image: "traefik:v2.2"
+    image: traefik:v3.5
     command:
-      - "--providers.docker"
+      - "--providers.docker=true"
       - "--entrypoints.web.address=:80"
-      - "--accesslog=true"
       - "--accesslog.filePath=/logs/access.log"
     ports:
       - "80:80"
@@ -15,7 +12,7 @@ services:
       - ./logs/:/logs/
 
   whoami:
-    image: containous/whoami
+    image: traefik/whoami
     labels:
       - "traefik.http.routers.whoami.entrypoints=web"
       - "traefik.http.routers.whoami.rule=Host(`whoami.localhost`)"

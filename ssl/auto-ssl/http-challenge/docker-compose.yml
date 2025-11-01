@@ -1,13 +1,11 @@
-version: '3'
-
 services:
   traefik:
-    image: traefik:v2.2
+    image: traefik:v3.5
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./letsencrypt/:/letsencrypt/
     command:
-      - "--providers.docker"
+      - "--providers.docker=true"
       - "--entrypoints.web.address=:80"      
       - "--entrypoints.webwecure.address=:443"
       - "--certificatesresolvers.default.acme.httpchallenge=true"
@@ -17,7 +15,7 @@ services:
 
 
   whoami:
-    image: containous/whoami
+    image: traefik/whoami
     labels:
       traefik.http.routers.whoami.entrypoints: websecure
       traefik.http.routers.whoami.rule: Host(`whoami.example.com`)"

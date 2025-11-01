@@ -1,10 +1,8 @@
-version: '3'
-
 services:
   traefik:
-    image: traefik:v2.2
+    image: traefik:v3.5
     command:
-      - "--providers.docker"
+      - "--providers.docker=true"
       - "--entrypoints.web.address=:80"
     ports:
       - "80:80"
@@ -14,9 +12,9 @@ services:
       - "traefik.http.routers.redirect-router.entrypoints=web"
       - "traefik.http.routers.redirect-router.rule=Host(`blog.localhost`)"
       - "traefik.http.routers.redirect-router.middlewares=redirect-regex"
-      - "traefik.http.middlewares.redirect-regex.redirectregex.regex=^https?://blog.localhost/(.*)"
-      - "traefik.http.middlewares.redirect-regex.redirectregex.replacement=http://localhost/blog/$${1}"
-      - "traefik.http.middlewares.redirect-regex.redirectregex.permanent=false"
+      - "traefik.http.middlewares.redirect-regex.redirectRegex.regex=^https?://blog.localhost/(.*)"
+      - "traefik.http.middlewares.redirect-regex.redirectRegex.replacement=http://localhost/blog/$${1}"
+      - "traefik.http.middlewares.redirect-regex.redirectRegex.permanent=false"
 
   website:
     image: nginx:latest
@@ -25,4 +23,3 @@ services:
     labels:
       - "traefik.http.routers.website.entrypoints=web"
       - "traefik.http.routers.website.rule=Host(`localhost`)"
-
