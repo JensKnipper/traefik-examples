@@ -80,6 +80,10 @@ Feel free to open tickets or merge requests if you think something is missing.
 - [Example code](ssl/auto-ssl/http-challenge/docker-compose.yml)
 
 
+## Hints
+
+These examples expose the docker sock as read only to Traefik. To harden your setup you might want to use [docker-socket-proxy](https://github.com/linuxserver/docker-socket-proxy).
+
 ## Upcoming Topics
 - https and www redirect - www to non-www version
 - https and www redirect - per service
@@ -87,3 +91,4 @@ Feel free to open tickets or merge requests if you think something is missing.
 - rate limiting
 - load balancing
 - port instead of domain
+- socket proxy

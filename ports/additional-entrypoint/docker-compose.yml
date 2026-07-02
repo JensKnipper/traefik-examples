@@ -11,7 +11,7 @@ services:
       - "443:443"
       - "1234:1234"
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
+      - /var/run/docker.sock:/var/run/docker.sock:ro
 
   whoami:
     image: traefik/whoami

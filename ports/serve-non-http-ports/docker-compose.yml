@@ -13,7 +13,7 @@ services:
       - "21:21"
       - "10000:10000"
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
+      - /var/run/docker.sock:/var/run/docker.sock:ro
 
   ftp:
     image: stilliard/pure-ftpd

@@ -4,7 +4,7 @@ services:
   traefik:
     image: traefik:v2.2
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
+      - /var/run/docker.sock:/var/run/docker.sock:ro
       - ./letsencrypt/:/letsencrypt/
     command:
       - "--providers.docker"

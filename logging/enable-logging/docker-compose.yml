@@ -6,5 +6,5 @@ services:
       - "--log.level=DEBUG" # DEBUG, PANIC, FATAL, ERROR, WARN, INFO
       - "--log.filePath=/logs/traefik.log" 
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
+      - /var/run/docker.sock:/var/run/docker.sock:ro
       - ./logs/:/logs/
